@@ -1,59 +1,52 @@
 # async-bft-suite
-🚀 Asynchronous BFT Protocol Framework (pMVBA Prototype)
+🚀 Asynchronous BFT Protocol Framework
 
-A modular distributed systems framework implementing asynchronous Byzantine Fault Tolerant (BFT) protocols, including a prototype of Prioritized MVBA (pMVBA).
+Implementation and ongoing refactoring of asynchronous Byzantine Fault Tolerant (BFT) consensus protocols into a modular, protocol-driven distributed system framework.
 
+Supports multiple protocol designs including:
+- Prioritized MVBA (pMVBA)
+- Cachin MVBA
+- VABA
+  
 Designed to explore correctness under failures, message coordination, and consensus without synchrony assumptions.
+🧠 Key Highlights
+- ⚙️ End-to-end implementation of BFT protocol components
+- 🔧 Refactoring into clean, modular architecture
+- 🧩 Separation of network (gRPC) and protocol logic
+- 🔁 Multi-node asynchronous message passing
+- 🧪 Designed for fault injection and correctness testing (in progress)
 
-🧠 Key Features
-
-⚙️ gRPC-based node communication layer
-
-🧩 Protocol-driven architecture (clean separation of networking and logic)
-
-🔁 Multi-node message passing simulation
-
-📦 Support for:
-
-pMVBA (in progress)
-
-Cachin MVBA (planned)
-
-VABA (planned)
-
-🧪 Designed for fault injection and adversarial testing (upcoming)
 
 🏗️ Architecture
 node_server.py   → RPC handlers (network layer)
 node_client.py   → outbound communication
 protocol/
-  pmvba.py       → protocol logic (core)
+  pmvba.py
+  mvba.py
+  vaba.py
 
-👉 Clean separation:
+👉 Transition:
+- From monolithic implementation
+- To reusable protocol framework
 
-gRPC handles message transport
+🔄 Protocol Flow (Generalized)
+Propose → Broadcast → Vote/Recommend → Decide
 
-Protocol classes handle consensus logic
-
-🔄 Protocol Flow (Simplified)
-Propose → VCBC → Recommend → Decide
-
-- Nodes exchange messages via RPC
-- Decisions are made based on quorum (≥ 2f+1)
-- No reliance on synchrony assumptions
+- Asynchronous communication model
+- Quorum-based decisions (≥ 2f+1)
+- Designed for adversarial/failure scenarios
 
 🚧 Current Status
-- ✅ Communication layer complete
-- ✅ PMVBA protocol skeleton implemented
-- 🚧 Full protocol logic in progress
-- 🚧 Fault injection & testing (planned)
+- ✅ Initial protocol implementations complete
+- ✅ Refactoring into modular framework in progress
+- 🚧 Fault injection & testing framework planned
 
 🎯 Goal
 
-To bridge research-grade BFT protocols with practical distributed system implementations, focusing on:
+Bridge research-grade BFT protocols with production-style system design, focusing on:
 - correctness under failures
-- modular protocol design
-- real-world system behavior
+- modular protocol composition
+- real-world distributed behavior
 
 👨‍💻 Author
-- Built as part of research and system design work in distributed systems and Byzantine consensus.  
+- Distributed systems engineer focused on Byzantine fault tolerance, consensus protocols, and system correctness.
