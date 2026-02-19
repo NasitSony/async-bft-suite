@@ -116,7 +116,16 @@ class NodeServicer(pb_grpc.GreeterServicer):
         return self.h.abba(request, variant="classic_abba")
 
     def Propose(self, request, context):
-        return self.h.propose(request)
+        try:
+          self.pmvba.on_propose(request)
+          return pb.PROReply()
+        except Exception as e:
+          logging.error("Propose failed: %s", e)
+          context.set_code(grpc.StatusCode.INTERNAL)
+          context.set_details(str(e))
+          return pb.PROReply()
+        
+        #return self.h.propose(request)
 
     def ClassicPropose(self, request, context):
         return self.h.classic_propose(request)
@@ -128,7 +137,15 @@ class NodeServicer(pb_grpc.GreeterServicer):
         return self.h.collect_proposal(request)
 
     def Recommend(self, request, context):
-        return self.h.recommend(request)
+        try:
+           self.pmvba.on_reco(request)
+           return pb.RECOReply()
+        except Exception as e:
+          logging.exception("Recommend handler failed")
+          context.set_code(grpc.StatusCode.INTERNAL)
+          context.set_details(str(e))
+          return pb.RECOReply()
+        #return self.h.recommend(request)
 
     def ElectLeader(self, request, context):
         return self.h.elect_leader(request)
