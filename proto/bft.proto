@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package bft;
+
+// Unified service for all protocols
+service Node {
+  rpc SendMessage (Message) returns (Ack);
+}
+
+// Generic message used by all protocols (pmvba, mvba, vaba)
+message Message {
+  string protocol_id = 1;   // "pmvba", "cachin_mvba", "vaba"
+  int32 sender_id    = 2;   // node id of sender
+  int32 instance_id  = 3;   // protocol instance
+  string msg_type    = 4;   // e.g., "PROPOSE", "ECHO", "READY"
+  bytes payload      = 5;   // serialized data (can be JSON/pickle for prototype)
+}
+
+// Acknowledgement returned by server
+enum AckStatus {
+  ACCEPTED = 0;
+  REJECTED = 1;
+  PENDING  = 2;
+}
+
+message Ack {
+  bool ok        = 1;
+  AckStatus status = 2;
+  string reason  = 3;
+}
