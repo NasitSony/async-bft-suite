@@ -1,4 +1,4 @@
-# async-bft-suite
+
 🚀 Asynchronous BFT Protocol Framework
 
 Implementation and ongoing refactoring of asynchronous Byzantine Fault Tolerant (BFT) consensus protocols into a modular, protocol-driven distributed system framework.
