@@ -1,0 +1,3 @@
+# stdlib only; grpcio required
+grpcio>=1.60
+protobuf>=4.25
