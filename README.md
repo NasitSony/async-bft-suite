@@ -70,66 +70,95 @@ Flow Explanation
 
 ## ⚙️ Key Features
 
+```bash
 - Fully decentralized (leaderless)
   Eliminates single point of failure
+```
 
+```bash
 - Asynchronous execution model
   Handles unpredictable network delays and message ordering
+```
 
+```bash
 - Quorum-based trust model
   Ensures agreement despite adversarial nodes
+```
 
+```bash
 - Binary Agreement (ABBA)
   Finalizes decisions using randomized techniques (simulated common coin)
+```
 
+```bash
 - Fault injection support (planned / implemented)
   Simulates Byzantine nodes, delays, and dropped messages
+```
 
 ## 🧪 What This System Demonstrates
 
 This framework enables:
+
+```bash
 - Evaluation of consensus correctness under failure
 - Simulation of Byzantine node behavior
 - Analysis of quorum formation and agreement dynamics
-- Observability into message flow and decision-making  
+- Observability into message flow and decision-making
+```
   
 
 Supports multiple protocol designs including:
+
+```bash
 - Prioritized MVBA (pMVBA)
 - Cachin MVBA
 - VABA
+```
   
 Designed to explore correctness under failures, message coordination, and consensus without synchrony assumptions.
 
 ## 🧠 Key Highlights
+
+```bash
 - ⚙️ End-to-end implementation of BFT protocol components
 - 🔧 Refactoring into clean, modular architecture
 - 🧩 Separation of network (gRPC) and protocol logic
 - 🔁 Multi-node asynchronous message passing
 - 🧪 Designed for fault injection and correctness testing (in progress)
+```
 
 
-👉 Transition:
+## 👉 Transition:
+
+```bash
 - From monolithic implementation
 - To reusable protocol framework
+```
 
 
-
+```bash
 - Asynchronous communication model
 - Quorum-based decisions (≥ 2f+1)
 - Designed for adversarial/failure scenarios
+```
 
 ## 🚧 Current Status
+
+```bash
 - ✅ Initial protocol implementations complete
 - ✅ Refactoring into modular framework in progress
 - 🚧 Fault injection & testing framework planned
+```
 
-##b 🎯 Goal
+## 🎯 Goal
 
 Bridge research-grade BFT protocols with production-style system design, focusing on:
+
+```bash
 - correctness under failures
 - modular protocol composition
 - real-world distributed behavior
+```
 
 ## 👨‍💻 Author
 - Distributed systems engineer focused on Byzantine fault tolerance, consensus protocols, and system correctness.
